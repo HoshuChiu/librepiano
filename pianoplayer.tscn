@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqxqdsviav8qy"]
+
+[ext_resource type="Script" path="res://pianoplayer.gd" id="1_igr73"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_mbahw"]
+
+[node name="Pianoplayer" type="Node"]
+script = ExtResource("1_igr73")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamGenerator_mbahw")

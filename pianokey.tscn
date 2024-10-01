@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://eh6tvgpni8r3"]
+
+[ext_resource type="Shader" path="res://key.gdshader" id="1_gj0hw"]
+[ext_resource type="Script" path="res://pianokey.gd" id="2_0snfi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tqchx"]
+shader = ExtResource("1_gj0hw")
+shader_parameter/border_color = Color(0.14474, 0.14474, 0.14474, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwwq6"]
+shader = ExtResource("1_gj0hw")
+shader_parameter/border_color = null
+
+[sub_resource type="Gradient" id="Gradient_0jc56"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.00624723, 1)
+colors = PackedColorArray(0.0545213, 0.0545213, 0.0545213, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wv6jn"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_0jc56")
+width = 200
+height = 700
+fill_from = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qsglt"]
+font_size = 100
+font_color = Color(0.208261, 0.208261, 0.208261, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gs78p"]
+font_size = 60
+font_color = Color(0.208261, 0.208261, 0.208261, 1)
+
+[sub_resource type="Gradient" id="Gradient_1h2hu"]
+resource_local_to_scene = true
+interpolation_mode = 1
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cp4e6"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_1h2hu")
+width = 140
+height = 400
+fill_from = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsdfe"]
+size = Vector2(140, 400)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sbxal"]
+font_size = 70
+font_color = Color(0.872449, 0.872449, 0.872449, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rp1pa"]
+font_size = 40
+font_color = Color(0.872449, 0.872449, 0.872449, 1)
+
+[node name="Pianokey" type="Node2D"]
+material = SubResource("ShaderMaterial_tqchx")
+script = ExtResource("2_0snfi")
+
+[node name="WhiteKey" type="TouchScreenButton" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vwwq6")
+texture_normal = SubResource("GradientTexture2D_wv6jn")
+
+[node name="TuneName" type="Label" parent="WhiteKey"]
+offset_top = 448.0
+offset_right = 200.0
+offset_bottom = 648.0
+text = "#C"
+label_settings = SubResource("LabelSettings_qsglt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Group" type="Label" parent="WhiteKey"]
+offset_left = 75.0
+offset_top = 477.0
+offset_right = 275.0
+offset_bottom = 677.0
+text = "2"
+label_settings = SubResource("LabelSettings_gs78p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlackKey" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(130, 0)
+texture_normal = SubResource("GradientTexture2D_cp4e6")
+shape = SubResource("RectangleShape2D_qsdfe")
+shape_visible = false
+
+[node name="TuneName" type="Label" parent="BlackKey"]
+offset_top = 211.0
+offset_right = 140.0
+offset_bottom = 351.0
+text = "#C"
+label_settings = SubResource("LabelSettings_sbxal")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Group" type="Label" parent="BlackKey"]
+offset_left = 54.0
+offset_top = 232.0
+offset_right = 194.0
+offset_bottom = 372.0
+text = "2"
+label_settings = SubResource("LabelSettings_rp1pa")
+horizontal_alignment = 1
+vertical_alignment = 1

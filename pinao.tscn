@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsc6n7pxh2321"]
+
+[ext_resource type="Script" path="res://pianoforte.gd" id="1_wrb2q"]
+
+[node name="Pianoforte" type="Node2D"]
+script = ExtResource("1_wrb2q")
+
+[node name="Keys" type="Node2D" parent="."]
